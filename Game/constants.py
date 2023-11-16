@@ -34,3 +34,7 @@ GPIO.setup(btn_1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(btn_2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(btn_3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(btn_4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+
+
+aslkdhfapiwuehaWkef
