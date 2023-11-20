@@ -12,7 +12,7 @@ led_3 = 21
 led_4 = 10
 
 # button pin definitions
-btn_1 = 18 
+btn_1 = 18
 btn_2 = 17
 btn_3 = 22
 btn_4 = 27

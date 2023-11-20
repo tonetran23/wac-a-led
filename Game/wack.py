@@ -6,34 +6,15 @@
 # Author: Tony Tran and Brandon Vu
 
 import random
-from constants import *
+import time
+from .constants import *
+from threading import Timer, Thread
 
-class wack(thread):
+class Wack(Thread):
     def __init__(self):
-        self.wack_led_pattern = True
-        self.moniter_button = False
-        self.buzzer = False
-        
+        super().__init__()
         
     def run(self):
-        moniter_button
-       
-       
-    def moniter_button(self):
-        try:
-            while (1):
-                if not GPIO.input(btn_1) == 1:
-            
-                if not GPIO.input(btn_2) == 1:
-            
-                if not GPIO.input(btn_3) == 1:
-           
-                if not GPIO.input(btn_4) == 1:
-               
-    def wack_led_pattern(self):
-        list_led = [led_1, led_2, led_3, led_4]
-        try:
-            GIPO.output(random.choice(list_led), 1)
-            
-    
-    
+        while True:
+            print('hello')
+            time.sleep(1)
