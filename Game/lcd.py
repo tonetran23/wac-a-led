@@ -2,32 +2,18 @@
 #Author: Tony Tran and Brandon Vu
 
 from .constants import *
-import time
+from time import sleep
 import RPi.GPIO as GPIO
 
-def lcd_setup():    
-    GPIO.setwarnings(False)
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(LCD_E, GPIO.OUT)
-    GPIO.setup(LCD_RS, GPIO.OUT)
-    GPIO.setup(LCD_D4, GPIO.OUT)
-    GPIO.setup(LCD_D5, GPIO.OUT)
-    GPIO.setup(LCD_D6, GPIO.OUT)
-    GPIO.setup(LCD_D6, GPIO.OUT)
-    GPIO.setup(LCD_D7, GPIO.OUT)
-    GPIO.setup(btn_1, GPIO.IN)
-    GPIO.setup(ledtest, GPIO.OUT)
-    GPIO.output(ledtest, 0)
-
 def lcd_init():
-    # Initialise display
+    # Initialize display
     lcd_byte(0x33,LCD_CMD) # 110011 Initialise
     lcd_byte(0x32,LCD_CMD) # 110010 Initialise
     lcd_byte(0x06,LCD_CMD) # 000110 Cursor move direction
     lcd_byte(0x0C,LCD_CMD) # 001100 Display On,Cursor Off, Blink Off
     lcd_byte(0x28,LCD_CMD) # 101000 Data length, number of lines, font size
     lcd_byte(0x01,LCD_CMD) # 000001 Clear display
-    time.sleep(E_DELAY)
+    sleep(E_DELAY)
 
 def lcd_byte(bits, mode):
     # Send byte to data pins
@@ -73,11 +59,11 @@ def lcd_byte(bits, mode):
  
 def lcd_toggle_enable():
     # Toggle enable
-    time.sleep(E_DELAY)
+    sleep(E_DELAY)
     GPIO.output(LCD_E, True)
-    time.sleep(E_PULSE)
+    sleep(E_PULSE)
     GPIO.output(LCD_E, False)
-    time.sleep(E_DELAY)
+    sleep(E_DELAY)
  
 def lcd_string(message,line):
     # Send string to display

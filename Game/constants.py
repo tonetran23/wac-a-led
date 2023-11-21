@@ -37,32 +37,36 @@ LCD_LINE_2 = 0xC0 # LCD RAM address for the 2nd line
 E_PULSE = 0.0005  # Timing constants
 E_DELAY = 0.0005
 
-#suppress warnings
-GPIO.setwarnings(False)
-
-# set mode
-GPIO.setmode(GPIO.BCM)
-
-# LED setup
-GPIO.setup(led_1, GPIO.OUT)
-GPIO.setup(led_2, GPIO.OUT)
-GPIO.setup(led_3, GPIO.OUT)
-GPIO.setup(led_4, GPIO.OUT)
-
-# GPIO setup for pins
-GPIO.setup(btn_1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(btn_2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(btn_3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(btn_4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(LCD_E, GPIO.OUT)
-GPIO.setup(LCD_RS, GPIO.OUT)
-GPIO.setup(LCD_D4, GPIO.OUT)
-GPIO.setup(LCD_D5, GPIO.OUT)
-GPIO.setup(LCD_D6, GPIO.OUT)
-GPIO.setup(LCD_D6, GPIO.OUT)
-GPIO.setup(LCD_D7, GPIO.OUT)
-GPIO.setup(buz, GPIO.OUT)
-
 # Defining lists
 neg_comments = ["You SUCK!", "HAHA! LOSER!", "Good job! SIKE!", "Slowpoke!!", "You sad?? :(", "Not even close", "LLLLLLL", "Du ma may!", "Dit me may!"]
 pos_comments = ["Good work!!!!!!!", "Wow, you're cool", "Amazing job!!", "Nice hit!", "Great reaction!", "Keep it up!", "Excellent!!!!!", "Youre kilin it!", "You>>John", ":D <3"]
+
+# Function to setup all GPIO
+def pin_setup():
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(led_1, GPIO.OUT)
+    GPIO.setup(led_2, GPIO.OUT)
+    GPIO.setup(led_3, GPIO.OUT)
+    GPIO.setup(led_4, GPIO.OUT)
+    GPIO.setup(btn_1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(btn_2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(btn_3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(btn_4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(LCD_E, GPIO.OUT)
+    GPIO.setup(LCD_RS, GPIO.OUT)
+    GPIO.setup(LCD_D4, GPIO.OUT)
+    GPIO.setup(LCD_D5, GPIO.OUT)
+    GPIO.setup(LCD_D6, GPIO.OUT)
+    GPIO.setup(LCD_D6, GPIO.OUT)
+    GPIO.setup(LCD_D7, GPIO.OUT)
+    GPIO.setup(buz, GPIO.OUT)
+
+def leds_off():
+    GPIO.output(led_1, 0)
+    GPIO.output(led_2, 0)
+    GPIO.output(led_3, 0)
+    GPIO.output(led_4, 0)
+
+def buz_off():
+    GPIO.output(buz, 0)
